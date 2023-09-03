@@ -1,0 +1,16 @@
+siddharth@DESKTOP-5490SID:/mnt/c/Users/bsidd/Desktop/CS607 ACN/Assignments (Submissions)/Assignment 1/src$ bash run.sh server
+You are U1 (User 1) connected to server with IP 127.0.1.1 at port 7902
+Type "exit" or "quit" to terminate.
+U2: hello
+U1: what are you up to?
+U2: nothing much, just my cs607 assignment
+U2: it was hard to manage some cases
+U1: oh, really?
+U1: i found it to be quite easy
+U2: ahh okay
+U2: nvm, ttyl
+U2: gotta go!
+U2: bye!
+U1: byee!
+U2: quit
+U1: quitting ...
