@@ -1,0 +1,44 @@
+//K OutputQueue Algorithm
+
+Read MaxTimeSlots, NumberofPorts from command line
+Initilize of the variables 
+	InputPort, 
+	OutputPort, 
+	packetsToSend // holds packets to be send on port number
+
+Repeat i=1 to MaxTimeSlots
+
+	//Generate the Packet for Ports
+	Repeat NumberofPorts time
+		Generate RandNumber, 
+		IF RandNumber is less than the Probobility(PacketGenerateProb) then
+			generate r number of random packets and store it in InputPort
+			update the packetsToSend array
+	Repeat End
+
+
+	//Packet Scheduling
+	Repeat j=1 to NumberofPorts 
+		IF packetsToSend[j] has packet to send
+			IF packetSelector[j] == 1 THEN // If no contention
+				IF Buffer at j OutputPort is Not Full
+					Read the packet from InputPort and store it in OutputPort j 
+					decrement packetsToSend[j] count
+					Increment the Buffer count for  OutputPort j
+			ELSE IF packetsToSend[j]>1 && packetsToSend[j]<=QueueTheory.knockout // If there is a contention and packetsToSend not morethan Knockout
+				Randomly select a packet, store it in OutputPort j for transmission
+			ELSE
+				Store the knockout number of packets in Output buffer drop remaining Packets
+				Increment NoOfDroppedPacket count 
+	Repeat End
+
+	//Transfer a Packet
+	Repeat k=1 to NumberofPorts
+		IF OutputPort has packets to send
+			Calculate the delay  // delay at k = packet scheduled time - packet arrivle time
+			Increment packetTransmitted count
+			Clear the transmitted packet from the output buffer k
+	Repeat End
+Repeat End
+
+Calculate the TotalDelay, Average packet Delay, standard deviation packet delay and avg link Utilization and write into a file

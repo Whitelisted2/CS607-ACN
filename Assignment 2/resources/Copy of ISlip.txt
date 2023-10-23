@@ -1,0 +1,45 @@
+//ISLIP Algorithm
+
+Read MaxTimeSlots, NumberofPorts from command line
+Initilize of the variables InputPort, OutputPort, RequestArray, AcceptRequest, GrantRequest
+
+Repeat i=1 to MaxTimeSlots
+
+	//Generate the packet for Ports
+	Repeat for each port //NumberofPorts
+		RandNumber<- Generate RandomNumber 
+		If RandNumber is less than the Probobility(PacketGenerateProb) and Buffer is not full then
+			generate r number of radom packets and store it in InputPort
+	End Repeat
+
+	//PACKET SCHEDULING
+	Initialize accept and grant lists
+
+	Repeat until all the packets sent for time slot i
+		//REQUEST Phase
+		Repeat for each port
+			Store the request in RequestArray for each Port
+		End Repeat
+
+		//GRANT Phase
+		Repeat for each port
+			Check the RequestArray for each port and if there are multiple request for OutputPort, Grant the request by Round Robin.
+			Store the granted request in GrantRequest array
+		End Repeat
+
+		//ACCEPT Phase
+		Repeat for each Port
+			Check the GrantRequest for each port, if there are multiple grant request for input port, Accept the request by Rond Robin.
+			Store the accepted request in AcceptRequest.
+		End Repeat
+
+		//Transfer the Packet
+		Repeat for each Port // k =0 to NumberofPorts
+			Transfer the packet and clear GrantRequest and AcceptRequest for each output port
+			Calculate the delay //delay at k = packet scheduled time - packet arrivle time
+		End Repeat
+	End Repeat
+End Repeat
+
+Calculate the TotalDelay, Average packet Delay, standard deviation packet delay and avg link Utilization and write into a file
+		
