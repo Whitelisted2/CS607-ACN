@@ -30,4 +30,5 @@ This repository contains files related to Advanced Computer Networks (Autumn 202
     
 </details>
 
+> "Peace proposals unaccompanied by a sworn covenant indicate a plot." ― Sun Tzu, The Art of War
    
